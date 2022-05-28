@@ -4,6 +4,7 @@ public class CitaMedica {
 	
 	private Doctor doctor;
 	private Paciente paciente;
+	private String fecha;
 	
 
 }
