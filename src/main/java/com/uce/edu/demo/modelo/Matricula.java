@@ -9,6 +9,12 @@ public class Matricula {
 	private List< Materia> materia;
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Matricula [numero=" + numero + ", estudiante=" + estudiante + ", materia=" + materia + "]";
+	}
+	
 	//SET AND GET
 	public String getNumero() {
 		return numero;

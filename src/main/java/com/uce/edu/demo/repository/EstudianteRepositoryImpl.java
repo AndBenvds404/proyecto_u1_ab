@@ -3,8 +3,8 @@ package com.uce.edu.demo.repository;
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.modelo.Estudiante;
-@Repository
 
+@Repository
 public class EstudianteRepositoryImpl implements IEstudianteRepository {
 
 	@Override

@@ -10,26 +10,27 @@ public class MatriculaRepositoryImpl implements IMatriculaRepository{
 	@Override
 	public void insertar(Matricula m) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("se ha insertado en la base la matricula: "+ m);
+
 	}
 
 	@Override
 	public Matricula buscar(String nombre) {
-		System.out.println("se ha encontrado en la base el estudiante: "+ nombre);
+		System.out.println("se ha encontrado en la base la matricula: "+ nombre);
 		Matricula m = new Matricula();
-		return null;
+		return m;
 	}
 
 	@Override
 	public void actualizar(Matricula m) {
-		System.out.println("se ha actualizado en la base el estudiante: "+ m);
+		System.out.println("se ha actualizado en la base la matricula: "+ m);
 		
 	}
 
 	@Override
 	public void eliminar(String nombre) {
 		// TODO Auto-generated method stub
-		System.out.println("se ha eliminado en la base el estudiante: "+ nombre);
+		System.out.println("se ha eliminado en la base la matricula: "+ nombre);
 
 	}
 

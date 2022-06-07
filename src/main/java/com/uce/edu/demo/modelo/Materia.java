@@ -5,6 +5,13 @@ public class Materia {
 	private String nombre;
 	private String semestre;
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Materia [nombre=" + nombre + ", semestre=" + semestre + "]";
+	}
+	
 	// SET AND GET
 	public String getNombre() {
 		return nombre;
