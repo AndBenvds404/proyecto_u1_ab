@@ -1,62 +1,47 @@
 package com.uce.edu.demo;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.consultorio.CitaMedica2;
-import com.uce.edu.demo.parqueadero.Ticket;
-import com.uce.edu.demo.parqueadero.Ticket2;
-import com.uce.edu.demo.parqueadero.Ticket3;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.service.IEstudianteService;
 
 @SpringBootApplication
 public class ProyectoU1AbApplication implements CommandLineRunner{
 	
-	//Inyeccion(ID) por metodo set
 	@Autowired
-	private CitaMedica2 cita;
-	@Autowired
-	private Ticket ticket1;
-	@Autowired
-	private Ticket2 ticket2;
-	@Autowired
-	private Ticket3 ticket3;
+	private IEstudianteService estudianteService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1AbApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
-		//taller en clase
-		System.out.println("Mi primer proyecto con Spring Framework");
-		String mostrar = cita.agentar(LocalDateTime.now(), "Andres", "Benavides", 23, "Quito", "Ramon", 12);	
-		System.out.println(mostrar+"\n");
+		Estudiante e = new Estudiante();
+		e.setNombre("Andres");
+		e.setApellido("Benavides");
+		e.setCedula("1234567890");
+		this.estudianteService.ingresarEstudiante(e);
 		
-		//tarea 5
-		String imprimirTicket;
-		
-		System.out.println("DI por atributos usando estereotipo Component");
-		imprimirTicket = ticket1.reservar("PCA123", "Chevrolet", "A2-01", 2.50, LocalDateTime.now());
-		System.out.println(imprimirTicket+"\n");
-		
-		System.out.println("DI por constructor usando estereotipo Service");
-		imprimirTicket = ticket2.reservar("PFT456", "Toyota", "B1-02", 3.20, LocalDateTime.now());
-		System.out.println(imprimirTicket+"\n");
-		
-		System.out.println("DI por metodo set usando estereotipo Service");
-		imprimirTicket = ticket3.reservar("PQR789", "Nissan", "C1-03", 3.50, LocalDateTime.now());
-		System.out.println(imprimirTicket);
-
+		Estudiante e1 = new Estudiante();
+		e1.setNombre("Mike");
+		e1.setApellido("Wasoski");
+		e1.setCedula("0987654321");
+		this.estudianteService.ingresarEstudiante(e1);
 		
 		
+		//Usar los 3 metodos restantes
+		e.setCedula("1727099999");
+		this.estudianteService.actualizarEstudiante(e);
 		
+		this.estudianteService.buscarPorApellido("Benavides");
 		
-		
+		this.estudianteService.borrarEstudiante("0987654321");
 		
 	}
 
