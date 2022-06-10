@@ -6,5 +6,7 @@ public interface ICuentaBancariraRepository {
 
 	public void actualizar (CuentaBancaria c);
 	public CuentaBancaria buscar (String numero);
+	public void insertar (CuentaBancaria c);
+	public void eliminar (String numero);
 	
 }

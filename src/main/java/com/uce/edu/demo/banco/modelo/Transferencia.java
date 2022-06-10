@@ -8,17 +8,26 @@ public class Transferencia {
 	private String numeroCuentaDestino;
 	private BigDecimal montoTransferir;
 	private LocalDateTime fechaTransferencia;
+	private String numeroTransferencia;
 	
 	
-		@Override
+	@Override
 	public String toString() {
 		return "Transferencia [numeroCuentaOrigen=" + numeroCuentaOrigen + ", numeroCuentaDestino="
 				+ numeroCuentaDestino + ", montoTransferir=" + montoTransferir + ", fechaTransferencia="
-				+ fechaTransferencia + "]";
+				+ fechaTransferencia + ", numeroTransferencia=" + numeroTransferencia + "]";
 	}
+	
+	
 	//SET AND GET
 	public LocalDateTime getFechaTransferencia() {
 		return fechaTransferencia;
+	}
+	public String getNumeroTransferencia() {
+		return numeroTransferencia;
+	}
+	public void setNumeroTransferencia(String numeroTransferencia) {
+		this.numeroTransferencia = numeroTransferencia;
 	}
 	public void setFechaTransferencia(LocalDateTime fechaTransferencia) {
 		this.fechaTransferencia = fechaTransferencia;
