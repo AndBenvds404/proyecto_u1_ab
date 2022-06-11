@@ -2,6 +2,7 @@ package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,8 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired
-	private ITransferenciaRepository TransferenciaRepository; 
+	
+	private ITransferenciaRepository iTransferenciaRepository; 
 
 	@Override
 	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto,String numTransferencia) {
@@ -41,28 +43,35 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		t.setMontoTransferir(monto);
 		t.setFechaTransferencia(LocalDateTime.now());
 		t.setNumeroTransferencia(numTransferencia);
-		this.TransferenciaRepository.insertar(t);
+		this.iTransferenciaRepository.insertar(t);
 	}
 	
 	@Override
 	public void actualizarTransferencia(Transferencia t) {
 		// TODO Auto-generated method stub
 		
-		this.TransferenciaRepository.actualiazr(t);
+		this.iTransferenciaRepository.actualiazr(t);
 	}
 	
 	@Override
 	public Transferencia buscarTransferencia(String numTransferencia) {
 		// TODO Auto-generated method stub
-		return this.TransferenciaRepository.buscar(numTransferencia);
+		return this.iTransferenciaRepository.buscar(numTransferencia);
 		
 	}
 	
 	@Override
 	public void eliminarTransferencia(String numTransferencia) {
 		// TODO Auto-generated method stub
-		this.TransferenciaRepository.eliminar(numTransferencia);
+		this.iTransferenciaRepository.eliminar(numTransferencia);
 		
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		//no hay logica de negocio por ende las listas de (deposito/retiro/transferencia) accedo directo al repository
+		return this.iTransferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
 	}
 
 }
