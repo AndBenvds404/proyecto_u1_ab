@@ -49,7 +49,7 @@ public class TransferenciaRepositoryImpl  implements ITransferenciaRepository{
 		trans1.setMontoTransferir(new BigDecimal(100));
 		trans1.setNumeroCuentaDestino("12314");
 		trans1.setNumeroCuentaDestino("1234567");
-		return null;
+		return listaConsultada;
 	}
 	
 
