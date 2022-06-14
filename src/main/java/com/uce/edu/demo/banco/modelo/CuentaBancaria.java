@@ -6,14 +6,20 @@ public class CuentaBancaria {
 	
 	private String numero;
 	private BigDecimal saldo; //para manejar datos monetarios
+	private String tipo;
 	
-	
-	
-	@Override
+		@Override
 	public String toString() {
-		return "CuentaBancaria [numero=" + numero + ", saldo=" + saldo + "]";
+		return "CuentaBancaria [numero=" + numero + ", saldo=" + saldo + ", tipo=" + tipo + "]";
 	}
 	//SET AND GET
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public String getNumero() {
 		return numero;
 	}

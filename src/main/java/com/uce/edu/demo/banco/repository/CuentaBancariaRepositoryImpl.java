@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 @Repository
-public class CuentaBancariaRepositoryImpl implements ICuentaBancariraRepository {
+public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 
 	@Override
 	public void actualizar(CuentaBancaria c) {
@@ -20,6 +20,7 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariraRepository 
 		CuentaBancaria cta = new CuentaBancaria();
 		cta.setNumero(numero);
 		cta.setSaldo(new BigDecimal(100));
+		cta.setTipo("A");
 		return cta;
 	}
 	
