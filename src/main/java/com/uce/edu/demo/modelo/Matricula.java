@@ -6,9 +6,7 @@ public class Matricula {
 
 	private String numero;
 	private Estudiante estudiante;
-	private List< Materia> materia;
-	
-	
+	private List<Materia> materia;
 	
 	@Override
 	public String toString() {
