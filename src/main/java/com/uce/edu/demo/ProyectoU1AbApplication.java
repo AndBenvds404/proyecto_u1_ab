@@ -1,32 +1,32 @@
 package com.uce.edu.demo;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.restaurante.Orden;
-import com.uce.edu.demo.restaurante.PlatilloDelDia;
-import com.uce.edu.demo.restaurante.PlatillosCarta;
-import com.uce.edu.demo.restaurante.serice.IOrdenService;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.modelo.Materia;
+import com.uce.edu.demo.modelo.Matricula;
+import com.uce.edu.demo.modelo.ProfesorGeneral;
+import com.uce.edu.demo.modelo.ProfesorMateria;
+import com.uce.edu.demo.service.IMatriculaService;
 
 @SpringBootApplication
 public class ProyectoU1AbApplication implements CommandLineRunner {
 
-
 	@Autowired
-	private PlatilloDelDia platoDelDia;
+	private ProfesorGeneral profesorGeneral;
 	@Autowired
-	private PlatilloDelDia platoDelDia1;
+	private ProfesorGeneral profesorGeneral1;
 	@Autowired
-	private PlatillosCarta platoCarta;
+	private ProfesorMateria profesorMatera;
 	@Autowired
-	private PlatillosCarta platoCarta1;
+	private ProfesorMateria profesorMatera1;
 	@Autowired
-	private IOrdenService ordenService;
+	private IMatriculaService matriculaService;
 	
 	
 	public static void main(String[] args) {
@@ -36,27 +36,27 @@ public class ProyectoU1AbApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	
-        this.platoDelDia.setNombre("spaghetti");
-        this.platoDelDia.setPorcion("200 gr");
-        this.platoDelDia.setPrecio(new BigDecimal(3.5));
-        System.out.println(this.platoDelDia);
-        System.out.println(this.platoDelDia1+"\n");
-        
-        this.platoDelDia1.setPorcion("150 gr");
-        System.out.println(this.platoDelDia+"\n");
-        
-        System.out.println("EJEMPLO DE PROTOTIPE");
-        this.platoCarta.setNombre("Churasco");
-        this.platoCarta.setPorcion("150 gr");
-        this.platoCarta.setPrecio(new BigDecimal(3.75));
-		System.out.println(this.platoCarta);
-		System.out.println(this.platoCarta1+"\n");
+		this.profesorGeneral.setApellido("Lara");
+		this.profesorGeneral.setNombre("Jorge");
+		System.out.println(this.profesorGeneral);
+
 		
-		Orden orden01 = new Orden();
-		orden01.setFechaCreacion(LocalDate.now());
-		orden01.setNumOrden("123A");
-		this.ordenService.insertar(orden01);
+		System.out.println("EJEMPLO PROTOTYPE");
+		this.profesorMatera.setNombre("Vegeta");
+		this.profesorMatera.setApellido("Quintanchala");
+		System.out.println(this.profesorMatera);
+		System.out.println("\n - - - - - - - - - - - \n");
+		Matricula matricula1 = new Matricula();
+        matricula1.setEstudiante(new Estudiante());
+        matricula1.setMateria(new ArrayList<Materia>());
+        matricula1.setNumero("13123");
+        this.matriculaService.ingresarMatricula(matricula1);
+     
+        
+        
+        
+        
+        
 
 		
         
